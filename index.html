@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krupali Thakur | AI Researcher</title>
+<meta name="description" content="Krupali Thakur: MSc Artificial Intelligence (Queen’s University Belfast). Research in biomedical image segmentation, responsible AI and applied LLM systems. Prospective PhD student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6F5; --surface:#FFFFFF; --ink:#16282C; --muted:#56686B;
+  --line:#D6DFDD; --accent:#1C6E68; --accent-soft:#E2EFED; --warm:#B5702A;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0F1A1C; --surface:#162427; --ink:#E4ECEA; --muted:#9AAEAC;
+    --line:#2A3B3E; --accent:#6CC3B9; --accent-soft:#1D3533; --warm:#E3A55E;
+    color-scheme:dark;
+  }
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:1rem; line-height:1.6;
+}
+a{color:var(--accent); text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+img{max-width:100%}
+h1,h2,h3{font-family:"Newsreader",Georgia,"Times New Roman",serif; font-weight:500; line-height:1.2; margin:0}
+
+.shell{
+  max-width:1140px; margin:0 auto; padding:3rem 1.5rem;
+  display:grid; grid-template-columns:290px minmax(0,1fr); gap:3rem; align-items:start;
+}
+
+/* Sidebar */
+.side{position:sticky; top:2rem}
+.portrait{
+  width:148px; height:148px; border-radius:50%; overflow:hidden;
+  background:var(--accent-soft); border:1px solid var(--line);
+  display:grid; place-items:center; margin-bottom:1.5rem;
+}
+.portrait img{width:100%; height:100%; object-fit:cover; display:block}
+.portrait span{font-family:"Newsreader",Georgia,serif; font-size:3rem; color:var(--accent)}
+.side h1{font-size:2.4rem; letter-spacing:-.01em}
+.role{color:var(--muted); margin:.5rem 0 1.5rem; font-size:.98rem}
+.status{
+  display:inline-block; font-size:.85rem; padding:.3rem .7rem; border-radius:999px;
+  background:var(--accent-soft); color:var(--accent); margin-bottom:1.5rem; font-weight:500;
+}
+.contact{list-style:none; padding:0; margin:0 0 1.5rem; font-size:.93rem}
+.contact li{padding:.45rem 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; gap:1rem}
+.contact li:last-child{border-bottom:1px solid var(--line)}
+.contact .k{color:var(--muted)}
+.contact a{word-break:break-all; text-align:right}
+.cv-btn{
+  display:inline-block; padding:.6rem 1.1rem; border-radius:6px;
+  background:var(--accent); color:var(--surface); text-decoration:none; font-weight:500; font-size:.95rem;
+}
+.cv-btn:hover{filter:brightness(1.08)}
+
+/* Tabs */
+nav.tabs{
+  display:flex; gap:.25rem; flex-wrap:wrap; border-bottom:1px solid var(--line); margin-bottom:2.5rem;
+}
+nav.tabs a{
+  padding:.7rem 1rem; color:var(--muted); text-decoration:none; font-weight:500; font-size:.97rem;
+  border-bottom:2px solid transparent; margin-bottom:-1px;
+}
+nav.tabs a:hover{color:var(--ink)}
+nav.tabs a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--accent)}
+
+.view{display:none; max-width:68ch}
+.view.on{display:block}
+.view > h2{font-size:2rem; margin-bottom:1.25rem}
+.view h3{font-size:1.35rem; margin:2.5rem 0 1rem}
+.lead{font-family:"Newsreader",Georgia,serif; font-size:1.3rem; line-height:1.5; margin:0 0 1.25rem}
+p{margin:0 0 1rem}
+
+/* Research questions: the one bold element */
+.questions{margin:1.5rem 0 0; padding:0; list-style:none}
+.questions li{
+  padding:1.25rem 0 1.25rem 1.25rem; border-left:3px solid var(--accent);
+  margin-bottom:1rem; background:linear-gradient(90deg,var(--accent-soft),transparent 70%);
+  padding-right:1rem;
+}
+.questions q{
+  display:block; font-family:"Newsreader",Georgia,serif; font-size:1.25rem; line-height:1.4;
+  quotes:none; margin-bottom:.4rem;
+}
+.questions small{color:var(--muted); font-size:.92rem; display:block}
+
+/* News */
+.news{list-style:none; padding:0; margin:0}
+.news li{display:grid; grid-template-columns:5.5rem 1fr; gap:1rem; padding:.7rem 0; border-top:1px solid var(--line)}
+.news time{color:var(--warm); font-weight:500; font-size:.92rem}
+
+/* Project + timeline entries */
+.entry{padding:1.25rem 0; border-top:1px solid var(--line)}
+.entry:first-of-type{border-top:none; padding-top:0}
+.entry-head{display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; align-items:baseline}
+.entry h4{margin:0; font-size:1.08rem; font-weight:600}
+.entry .when{color:var(--muted); font-size:.9rem; white-space:nowrap}
+.entry .where{color:var(--accent); font-size:.95rem; margin:.15rem 0 .5rem}
+.entry ul{margin:.25rem 0 0; padding-left:1.1rem}
+.entry li{margin-bottom:.3rem}
+.tags{display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem}
+.tags span{font-size:.82rem; padding:.15rem .55rem; border:1px solid var(--line); border-radius:4px; color:var(--muted)}
+
+/* Publications */
+.pubs{padding-left:1.4rem; margin:0}
+.pubs li{margin-bottom:1.25rem; padding-left:.3rem}
+.pubs .t{font-weight:600}
+.pubs .v{color:var(--muted); font-style:italic}
+.pubs .me{text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
+.note{font-size:.9rem; color:var(--muted); border-left:2px solid var(--warm); padding-left:.8rem}
+
+.skills{display:grid; grid-template-columns:10rem 1fr; gap:.6rem 1.25rem; margin:0}
+.skills dt{font-weight:600; font-size:.95rem}
+.skills dd{margin:0; color:var(--muted); font-size:.95rem}
+
+footer{grid-column:1/-1; color:var(--muted); font-size:.85rem; padding-top:2rem; border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .shell{grid-template-columns:1fr; gap:2rem; padding:2rem 1.25rem}
+  .side{position:static}
+  .portrait{width:112px; height:112px}
+  nav.tabs{overflow-x:auto; flex-wrap:nowrap}
+  nav.tabs a{white-space:nowrap}
+  .skills{grid-template-columns:1fr; gap:.15rem}
+  .skills dd{margin-bottom:.7rem}
+}
+@media (prefers-reduced-motion:no-preference){
+  .view.on{animation:in .25s ease-out}
+  @keyframes in{from{opacity:0}to{opacity:1}}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <div class="portrait">
+      <!-- Add a square photo named photo.jpg next to this file. Initials show until then. -->
+      <img src="photo.jpg" alt="Krupali Thakur" onerror="this.remove()">
+      <span aria-hidden="true">KT</span>
+    </div>
+    <h1>Krupali Thakur</h1>
+    <p class="role">MSc Artificial Intelligence, Queen’s University Belfast</p>
+    <div class="status">Seeking PhD positions for 2027</div>
+    <ul class="contact">
+      <li><span class="k">Email</span><a href="mailto:krupali0613@gmail.com">krupali0613@gmail.com</a></li>
+      <li><span class="k">Based in</span><span>Belfast, UK</span></li>
+      <li><span class="k">GitHub</span><a href="https://github.com/krupalithakur">krupalithakur</a></li>
+      <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/krupali-thakur">krupali-thakur</a></li>
+      <!-- Uncomment once you have a Google Scholar profile:
+      <li><span class="k">Scholar</span><a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a></li>
+      -->
+    </ul>
+    <a class="cv-btn" href="Krupali_Thakur_CV_2026.pdf">Download CV (PDF)</a>
+  </aside>
+
+  <main>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#outreach">Teaching &amp; outreach</a>
+    </nav>
+
+    <!-- ABOUT -->
+    <section class="view" id="view-about" aria-labelledby="h-about">
+      <h2 id="h-about">About me</h2>
+      <p class="lead">I build AI systems that have to work outside the lab: segmentation models for biomedical images, computer vision for environmental monitoring, and LLM pipelines that handle sensitive data in healthcare and insurance.</p>
+      <p>I completed my MSc in Artificial Intelligence at Queen’s University Belfast in 2025, where my dissertation benchmarked Cellpose and the Segment Anything Model on microscopy datasets. Before that I studied Electronics &amp; Telecommunication Engineering at Mumbai University, where I published two papers on deep learning for fish disease detection.</p>
+      <p>Since graduating I have worked as an AI and MLOps engineer in digital health and insurance technology, contributed to an Alan Turing Institute Data Study Group on detecting oil slicks from shipwrecks in satellite imagery, and led an AI bias audit of job postings with Women in AI Ireland. Across all of it, the question I keep returning to is <em>when can we trust a model on data it wasn’t built for?</em> I want to pursue that question properly in a PhD.</p>
+
+      <h3>Recent news</h3>
+      <ul class="news">
+        <li><time>2026</time><span>Finalist, NI Tech Awards: Rising Star. Speaker at Tech Tides Belfast.</span></li>
+        <li><time>2026</time><span>Won the Deloitte Catalyst AI Hackathon with a responsible-AI prototype supporting people with ADHD around impulsive spending.</span></li>
+        <li><time>2026</time><span>Named contributor on the Alan Turing Institute Data Study Group report for Cefas on detecting marine slicks from shipwrecks.</span></li>
+        <li><time>Sep 2025</time><span>Graduated MSc Artificial Intelligence, Queen’s University Belfast.</span></li>
+      </ul>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="view" id="view-research" aria-labelledby="h-research">
+      <h2 id="h-research">Research interests</h2>
+      <p>The questions I would like to work on during a PhD:</p>
+      <ul class="questions">
+        <li>
+          <q>How well do foundation segmentation models generalise to biomedical and scientific images they were never trained on?</q>
+          <small>Building on my MSc work comparing Cellpose and SAM across microscopy datasets.</small>
+        </li>
+        <li>
+          <q>How do we detect rare, small targets reliably in noisy imagery, from microscopy to satellite radar?</q>
+          <small>Grounded in small-object detection with YOLO and SAM, and SAR-based oil slick detection with the Turing Institute.</small>
+        </li>
+        <li>
+          <q>How can we evaluate and audit AI systems for bias and failure before they reach people?</q>
+          <small>Drawing on LLM evaluation work, hallucination checks in production, and a fairness audit of job postings.</small>
+        </li>
+      </ul>
+
+      <h3>Projects</h3>
+      <article class="entry">
+        <div class="entry-head"><h4>AI for microscopy imaging</h4><span class="when">MSc dissertation, 2025</span></div>
+        <p class="where">Queen’s University Belfast</p>
+        <p>Benchmarked Cellpose and SAM segmentation models on biomedical datasets, measuring IoU and Dice to assess generalisability and robustness across imaging conditions.</p>
+        <div class="tags"><span>Segmentation</span><span>Foundation models</span><span>Biomedical imaging</span></div>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>Detecting marine slicks from shipwrecks</h4><span class="when">2025</span></div>
+        <p class="where">Alan Turing Institute Data Study Group, with Cefas</p>
+        <p>Applied machine learning and computer vision to SAR satellite imagery to detect oil slicks from shipwrecks. Published as a Turing Institute report.</p>
+        <div class="tags"><span>Remote sensing</span><span>SAR</span><span>Computer vision</span></div>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>AI competency mapping and bias audit</h4><span class="when">2025 to present</span></div>
+        <p class="where">Women in AI Ireland mentorship programme</p>
+        <p>Leading an audit of job postings using NLP and fairness metrics to map gender gaps, regional trends and skill taxonomies in the AI workforce.</p>
+        <div class="tags"><span>NLP</span><span>Fairness</span><span>Responsible AI</span></div>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>AI-powered fish disease detection</h4><span class="when">2023 to 2024</span></div>
+        <p class="where">Undergraduate research, Mumbai University</p>
+        <p>Built a hybrid CNN and SVM model reaching 99.3% accuracy for early detection of epizootic ulcerative syndrome, deployed as a web app supporting UN SDGs 2 and 14. Led to papers in IEEE Xplore and Springer.</p>
+        <div class="tags"><span>CNN</span><span>Aquaculture</span><span>Deployment</span></div>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>Small-object detection</h4><span class="when">2025</span></div>
+        <p class="where">Clann.AI, Belfast</p>
+        <p>Developed YOLO and SAM-based models for small object detection and deployed a real-time inference pipeline on AWS, improving inference speed by 20%.</p>
+        <div class="tags"><span>YOLO</span><span>SAM</span><span>Real-time inference</span></div>
+      </article>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section class="view" id="view-publications" aria-labelledby="h-pubs">
+      <h2 id="h-pubs">Publications</h2>
+      <ol class="pubs" reversed>
+        <li>
+          <span class="t">Data Study Group Final Report: Cefas. Detecting marine slicks from shipwrecks using satellite observation data.</span><br>
+          <span class="me">K. Thakur</span> (named contributor) et al.<br>
+          <span class="v">The Alan Turing Institute</span>, 2026.
+          <!-- Add a link: <a href="URL">Report</a> -->
+        </li>
+        <li>
+          <span class="t">Novel approach for EUS fish detection using AI techniques.</span><br>
+          <span class="me">K. Thakur</span> et al.<br>
+          <span class="v">Springer (Scopus indexed)</span>, 2024.
+          <!-- Add DOI link -->
+        </li>
+        <li>
+          <span class="t">Enhancing fish disease detection: a comprehensive study.</span><br>
+          <span class="me">K. Thakur</span> et al.<br>
+          <span class="v">IEEE Xplore</span>, 2023.
+          <!-- Add DOI link -->
+        </li>
+      </ol>
+      <p class="note">Co-author lists and DOI links to be added. Replace “et al.” with the full author order as published.</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="view" id="view-experience" aria-labelledby="h-exp">
+      <h2 id="h-exp">Experience</h2>
+
+      <h3>Education</h3>
+      <article class="entry">
+        <div class="entry-head"><h4>MSc Artificial Intelligence, 2:1</h4><span class="when">Sep 2025</span></div>
+        <p class="where">Queen’s University Belfast</p>
+        <p>Modules: machine learning, predictive modelling, NLP, computer vision, knowledge engineering, AI ethics.<br>
+        <strong>Dissertation:</strong> benchmarking Cellpose and SAM for microscopy image segmentation.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>BTech Electronics &amp; Telecommunication Engineering, First Class</h4><span class="when">May 2024</span></div>
+        <p class="where">Mumbai University, India</p>
+        <p>Modules: machine learning, big data analytics, cloud computing and security, databases. Undergraduate research led to two peer-reviewed publications.</p>
+      </article>
+
+      <h3>Research and industry</h3>
+      <article class="entry">
+        <div class="entry-head"><h4>MLOps &amp; AI Engineer</h4><span class="when">Nov 2025 to present</span></div>
+        <p class="where">Gewardz Health, UK</p>
+        <ul>
+          <li>Designed multi-agent LLM architectures (CrewAI) with safe agent handoffs and human-in-the-loop decision points.</li>
+          <li>Built Python backend and RAG pipelines, shipping 3+ AI features to production at 99.2% uptime.</li>
+          <li>Delivered healthcare integrations including OAuth-based GP booking through QA, UAT and production.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>MLOps Engineer (AWS), freelance</h4><span class="when">Jan 2026 to present</span></div>
+        <p class="where">Insurance technology start-up, UK</p>
+        <ul>
+          <li>Engineered a 7-stage serverless document-review workflow (Lambda, Step Functions, Bedrock, Textract), cutting policy review from hours to about two minutes.</li>
+          <li>Implemented PII tokenisation, audit logging and compliance checks so sensitive data stays on private infrastructure.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>AI Consultant</h4><span class="when">Jul 2025 to Oct 2025</span></div>
+        <p class="where">EMEEN, Belfast</p>
+        <ul>
+          <li>Led AI adoption for 6+ start-ups and SMEs, supporting BridgeAI funding readiness.</li>
+          <li>Trained non-technical stakeholders on AI capabilities and risks, and led responsible AI discussions.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>AI &amp; Data Analyst (part-time)</h4><span class="when">Nov 2024 to Jun 2025</span></div>
+        <p class="where">Queen’s University Belfast</p>
+        <ul>
+          <li>Built BigQuery pipelines over 100M+ records to benchmark research outputs against Russell Group and peer institutions.</li>
+          <li>Automated ETL workflows and delivered Power BI dashboards for research strategy.</li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>Computer Vision &amp; MLOps Engineer (part-time)</h4><span class="when">Jan 2025 to Mar 2025</span></div>
+        <p class="where">Clann.AI, Belfast</p>
+        <ul><li>YOLO and SAM models for small object detection; real-time AWS pipeline with 20% faster inference.</li></ul>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>NLP Developer (freelance)</h4><span class="when">May 2024 to Aug 2024</span></div>
+        <p class="where">Outlier</p>
+        <ul><li>Evaluated LLM outputs against quality criteria and delivered 50+ improvements through prompt testing and failure-mode analysis.</li></ul>
+      </article>
+
+      <h3>Skills</h3>
+      <dl class="skills">
+        <dt>Machine learning</dt><dd>Computer vision (YOLO, SAM, Cellpose, CNNs), Hugging Face Transformers, LangChain, RAG, LLM evaluation</dd>
+        <dt>Programming</dt><dd>Python, SQL, R, Git, FastAPI</dd>
+        <dt>Infrastructure</dt><dd>AWS (EC2, Lambda, Step Functions, Bedrock, S3), GCP, Azure, Docker, Kubernetes, CI/CD, GPU/CUDA inference</dd>
+        <dt>Data</dt><dd>BigQuery, ETL design, Pandas, data validation, Power BI, Tableau</dd>
+      </dl>
+    </section>
+
+    <!-- OUTREACH -->
+    <section class="view" id="view-outreach" aria-labelledby="h-out">
+      <h2 id="h-out">Teaching &amp; outreach</h2>
+      <article class="entry">
+        <div class="entry-head"><h4>AI Programme Lead</h4><span class="when">2025 to present</span></div>
+        <p class="where">Widening Participation Unit, Queen’s University Belfast</p>
+        <p>Designing and delivering accessible AI programmes, turning complex concepts into practical learning and coordinating with academic and industry partners.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>Mentor</h4><span class="when">2025</span></div>
+        <p class="where">Women in AI Ireland</p>
+        <p>Mentored participants from non-technical backgrounds in applying ML, NLP and generative AI to real-world problems.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>Data Science Trainer</h4><span class="when">Jun 2024 to Sep 2024</span></div>
+        <p class="where">Infobyte Careers Institute, India</p>
+        <p>Created a curriculum combining theory with hands-on practice, with 90% learner satisfaction.</p>
+      </article>
+
+      <h3>Awards and talks</h3>
+      <article class="entry">
+        <div class="entry-head"><h4>Winner, Deloitte Catalyst AI Hackathon</h4><span class="when">2026</span></div>
+        <p>Designed a behavioural fintech prototype for ADHD-related impulsive spending, grounded in responsible AI and behavioural economics.</p>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>Finalist, NI Tech Awards: Rising Star</h4><span class="when">2026</span></div>
+      </article>
+      <article class="entry">
+        <div class="entry-head"><h4>Speaker, Tech Tides Belfast</h4><span class="when">2026</span></div>
+      </article>
+    </section>
+  </main>
+
+  <footer>© 2026 Krupali Thakur. References available on request.</footer>
+</div>
+
+<script>
+(function(){
+  var views = ["about","research","publications","experience","outreach"];
+  function show(){
+    var h = location.hash.replace("#","");
+    if (views.indexOf(h) === -1) h = "about";
+    views.forEach(function(v){
+      document.getElementById("view-"+v).classList.toggle("on", v === h);
+    });
+    document.querySelectorAll("nav.tabs a").forEach(function(a){
+      if (a.getAttribute("href") === "#"+h) a.setAttribute("aria-current","page");
+      else a.removeAttribute("aria-current");
+    });
+    window.scrollTo(0,0);
+  }
+  window.addEventListener("hashchange", show);
+  show();
+})();
+</script>
+</body>
+</html>
